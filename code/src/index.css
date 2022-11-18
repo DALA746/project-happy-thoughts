@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Trispace:100,200,300,regular,500,600,700,800");
+@import url('https://fonts.googleapis.com/css?family=Trispace:100,200,300,regular,500,600,700,800');
 
 body {
   margin: 0;
@@ -9,7 +9,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
@@ -17,7 +17,7 @@ code {
   font-style: italic;
 }
 
-.thought-card{
+.thought-card {
   margin: 20px auto;
   border: 2px solid black;
   width: 350px;
@@ -84,7 +84,7 @@ textarea {
 
 .button-container {
   display: flex;
-  gap:15px;
+  gap: 15px;
 }
 
 button {
@@ -117,59 +117,51 @@ input {
 
 /* spinner */
 .loading-overlay {
-	position: absolute;
-	/*top: 0;*/
-	right: 0;
-	bottom: 35%;
-	left: 0;
-	background: #ffadad;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  position: absolute;
+  /*top: 0;*/
+  right: 0;
+  bottom: 35%;
+  left: 0;
+  background: #ffadad;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loading-spinner {
-	width: 50px;
-	height: 50px;
-	border: 5px solid #dcdcdc;
-	border-radius: 50%;
-	border-left: 5px solid rgb(3, 3, 3);
-	animation: spinner infinite 0.5s;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #dcdcdc;
+  border-radius: 50%;
+  border-left: 5px solid rgb(3, 3, 3);
+  animation: spinner infinite 0.5s;
 }
 
 @keyframes spinner {
-	0% {
-		transform: rotate(0);
-	}
-	50% {
-		transform: rotate(180deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-
-
-/* MEDIA QUERIES */ 
-
-@media(min-width:1024px) {
+@media (min-width: 1024px) {
   .form {
     width: 500px;
   }
 }
 
-/* MEDIA QUERIES */ 
-
-@media(min-width:1024px) {
+@media (min-width: 1024px) {
   .thought-card {
     width: 500px;
   }
 }
 
-/* MEDIA QUERIES */ 
-
-@media(min-width:1024px) {
+@media (min-width: 1024px) {
   .button-container {
     width: 500px;
   }
@@ -178,6 +170,3 @@ input {
     width: 200px;
   }
 }
-
-
-
