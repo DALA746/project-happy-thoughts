@@ -5,11 +5,11 @@ This project's goals is to learn about a React component's lifecycle and how to 
 Update:
 I have now created my own Happy Thoughts API to use for this project: it's an Express API using MongoDB Atlas and deployed to Heroku ✌
 
-You can find it live here: https://happy-thoughts-backend.herokuapp.com/
+You can find it live here: https://project-happy-thoughts-api-production.up.railway.app
 
 And it repository including Documentation here: https://github.com/DALA746/project-happy-thoughts-api
 
-# What I learned 
+# What I learned
 
 - What component lifecycle means.
 - How to use the `useEffect` hook in React to perform actions when components mount, unmount, or when state changes.
@@ -19,4 +19,3 @@ And it repository including Documentation here: https://github.com/DALA746/proje
 # View it here
 
 https://happy-thoughts-react-project.netlify.app/
-
