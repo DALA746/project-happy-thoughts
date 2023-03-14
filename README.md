@@ -5,9 +5,9 @@ This project's goals is to learn about a React component's lifecycle and how to 
 Update:
 I have now created my own Happy Thoughts API to use for this project: it's an Express API using MongoDB Atlas and deployed to Heroku ✌
 
-You can find it live here: https://project-happy-thoughts-api-production.up.railway.app
+Frontend: https://project-happy-thoughts-api-production.up.railway.app
 
-And it repository including Documentation here: https://github.com/DALA746/project-happy-thoughts-api
+Backend: https://github.com/DALA746/project-happy-thoughts-api
 
 # What I learned
 
