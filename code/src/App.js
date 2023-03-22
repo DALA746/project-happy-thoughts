@@ -16,10 +16,16 @@ export const App = () => {
 
   const getRequest = () => {
     fetch(API_URL)
-      .then((res) => res.json())
+      .then((res) => {
+        res.json();
+      })
       .then((json) => {
         setSpinner(false);
         setThoughts(json.response);
+      })
+      .catch((error) => {
+        alert(`Something is wrong! Error message: ${error}`);
+        console.log(error);
       });
   };
 
@@ -29,9 +35,9 @@ export const App = () => {
     const options = {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ message: newThought, username }),
+      body: JSON.stringify({ message: newThought, username })
     };
 
     fetch(API_URL, options)
@@ -40,56 +46,68 @@ export const App = () => {
         getRequest();
         setNewThought('');
         setUsername('');
+      })
+      .catch((error) => {
+        alert(`Something is wrong! Error message: ${error}`);
+        console.log(error);
       });
   };
 
   const handleLikesIncrease = (thoughtId) => {
     const options = {
-      method: 'POST',
+      method: 'POST'
     };
     fetch(LIKES_URL(thoughtId), options)
       .then((res) => res.json())
-      .then(() => getRequest());
+      .then(() => getRequest())
+      .catch((error) => {
+        alert(`Something is wrong! Error message: ${error}`);
+        console.log(error);
+      });
   };
 
   const handleDeleteMessage = (thoughtId) => {
     const options = {
-      method: 'DELETE',
+      method: 'DELETE'
     };
     fetch(DELETE_URL(thoughtId), options)
       .then((res) => res.json())
       .then(() => {
         setSpinner(true);
         getRequest();
+      })
+      .catch((error) => {
+        alert(`Something is wrong! Error message: ${error}`);
+        console.log(error);
       });
   };
 
   return (
     <>
-      <form onSubmit={handleFormSubmit} className='form'>
-        <h1 className='form-title'>What makes you happy? &hearts;</h1>
+      <form onSubmit={handleFormSubmit} className="form">
+        <h1 className="form-title">What makes you happy? &hearts;</h1>
         <textarea
-          id='newThought'
-          type='text'
-          maxLength='140'
+          id="newThought"
+          type="text"
+          maxLength="140"
           value={newThought}
-          placeholder='Write your happy thought here...'
+          placeholder="Write your happy thought here..."
           onChange={(e) => setNewThought(e.target.value)}
         />
         <p style={{ color: newThought.length > 130 ? 'red' : 'green' }}>
           {newThought.length}/140
         </p>
-        <label htmlFor='Name'>
+        <label htmlFor="Name">
           Your name:
           <input
-            type='text'
+            type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
         <button
-          className='form-button'
-          type='submit'
+          className="form-button"
+          type="submit"
           disabled={newThought.length < 5 || newThought.length > 140}>
           &hearts; Send &hearts;
         </button>
@@ -99,23 +117,23 @@ export const App = () => {
         spinner ? (
           <Spinner key={thought._id} />
         ) : (
-          <div key={thought._id} className='thought-card'>
+          <div key={thought._id} className="thought-card">
             <p>{thought.message}</p>
             <p style={{ fontStyle: 'italic' }}>Posted by: {thought.username}</p>
-            <div className='button-container'>
+            <div className="button-container">
               <button
-                className='likes-button'
+                className="likes-button"
                 onClick={() => handleLikesIncrease(thought._id)}>
                 &hearts; {thought.hearts}
               </button>
 
               <button
-                className='likes-button'
+                className="likes-button"
                 onClick={() => handleDeleteMessage(thought._id)}>
-                <i className='fas fa-trash-alt'></i>
+                <i className="fas fa-trash-alt"></i>
               </button>
             </div>
-            <p className='date'>{moment(thought.createdAt).fromNow()}</p>
+            <p className="date">{moment(thought.createdAt).fromNow()}</p>
           </div>
         )
       )}
