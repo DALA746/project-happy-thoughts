@@ -14,19 +14,12 @@ export const App = () => {
     getRequest();
   }, []);
 
-  const getRequest = () => {
-    fetch(API_URL)
-      .then((res) => {
-        res.json();
-      })
-      .then((json) => {
-        setSpinner(false);
-        setThoughts(json.response);
-      })
-      .catch((error) => {
-        alert(`Something is wrong! Error message: ${error}`);
-        console.log(error);
-      });
+  const getRequest = async () => {
+    setSpinner(true);
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    setThoughts(data.response);
+    setTimeout(() => setSpinner(false), 1000);
   };
 
   const handleFormSubmit = (event) => {
